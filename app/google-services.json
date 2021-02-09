@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "737909978002",
+    "firebase_url": "https://inses-2021-default-rtdb.firebaseio.com",
+    "project_id": "inses-2021",
+    "storage_bucket": "inses-2021.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:737909978002:android:91fd09090471cdee06874b",
+        "android_client_info": {
+          "package_name": "com.inses"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "737909978002-6tjigb8u3meb371atmvoes8tpqlibh9j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATrRBIOdqZIc-Rd7JoA9qhU-UWBrsAXf0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "737909978002-6tjigb8u3meb371atmvoes8tpqlibh9j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

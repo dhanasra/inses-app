@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="text"
+            type="String" />
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+    <LinearLayout
+        android:foreground="@drawable/rouded_square_ripple"
+        android:focusable="true"
+        android:onClick="@{onClick}"
+        android:clickable="true"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UnusedAttribute">
+        <TextView
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/text_size_h3"
+            android:text="@{text}"
+            android:fontFamily="@font/linetocircular"
+            android:textColor="@color/black"/>
+    </LinearLayout>
+</layout>

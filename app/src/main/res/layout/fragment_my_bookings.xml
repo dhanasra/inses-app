@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.inses.ui.bookings.MyBookingsViewModel" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.bookings.MyBookingsFragment">
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorColor="@color/color_primary"
+            app:tabIndicatorHeight="3dp"
+            app:tabTextColor="@color/black"
+            android:id="@+id/bookingsTabLayout"/>
+        <View
+            android:layout_below="@id/bookingsTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:id="@+id/sep"
+            android:background="@color/semi_white"/>
+        <RelativeLayout
+            android:layout_below="@id/sep"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/bookingsViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

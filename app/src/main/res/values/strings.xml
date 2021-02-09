@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">INSES</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="GOOGLE_MAP_KEY">AIzaSyD66B_rCcRh91U1xiB_43iRBljEc4QHnio</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_for_services">search for services</string>
+    <string name="answer">Go to home and select the service you want to book. Add any item to your cart, select the address where you want the service and schedule it according to your convenience. After that, just pay and book the service and we will take care of the rest.</string>
+    <string name="about">We INSES are providing an Electrical and Plumbing Services located in Madurai, Tamil Nadu. Basically Inses will give a humorous preferable for Madurai People mainly Villapuram, Nilayur, Thirupparamkunram, Thirunagar, Anna Nagar, Four Masi Streets etc., Our Installation and Service divisions provide emergency and routing preventive maintenance to end users of our plumbing projects and to the wide range of business related customers. Our Flexible and Professional approach enables our clients to access a full range of services depending on their needs. Our elegant approach to our work means that projects are completed without hindrance to our clients: we take this very contentiously. Once a project is completed, we follow up with the client on further servicing levels.</string>
+    <string name="vision">We provide clients with professional fast and reliable solutions that best suit and service their needs. We are often commended by clients for the friendly and client centric approach of our team members. INSES was selected as our Electrical and Plumbing based on a blend of their eminent experience, Skill Sets, Track Record, passion for plumbing and Electrical Winding were the ability to truly engage with our clients. This results we offer is eventually proven through our excellent services and continued word of mouth referrals we receive.</string>
+    <string name="mission">To provide clients anonymously with quality products and excellent services that exceed customer expectation in this Electrical and Plumbing Industry to create long term relationships with our insightful clients. Basically Quality service is a non negotiable at INSES. Many of our clients know our review already. They know we will be there on time and we will sort out their electrical and plumbing issues right first time round.</string>
+    <string name="industries">We have experience assisting the following range of clients / Industries with divergent Electrical and Plumbing requirements.
+
+Commercial Industry
+Residential Homes
+Estate and Rental Agents
+Industrial Industry
+Hospitality Industry
+Construction Departments</string>
+    <string name="bussinessCategories">INSES significant advantage is its accessible pools of in house skills available for the successful management and maintenance of all aspects of Electrical and Plumbing Services. We always think in terms of solutions and their implementation in the systems.
+
+Plumbing Services
+Electrical Works
+Installation
+Maintenance
+LED Tv
+New Connection
+Painting</string>
+
+</resources>

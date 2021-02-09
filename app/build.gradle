@@ -1,0 +1,121 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.inses"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    dataBinding {
+        enabled = true
+    }
+    kapt {
+        correctErrorTypes = true
+    }
+}
+
+dependencies {
+    // core
+    implementation deps.kotlin
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    // Arch components
+    implementation deps.viewmodel
+    implementation deps.livedata
+    implementation deps.runtime
+    implementation deps.viewmodel_savedstate
+    kapt deps.compiler
+    implementation deps.commonjava
+    implementation deps.lifecycle_service
+    implementation deps.lifecycle_process
+    implementation deps.lifecycle_extensions
+    implementation deps.lifecycle_reactivestreams
+    // Rx
+    implementation deps.rxjava
+    implementation deps.rxandroid
+    // Multi_dex
+    implementation deps.multidex
+    // dagger component
+    implementation deps.dagger
+    kapt deps.dagger_compiler
+    kapt deps.dagger_android_processor
+    implementation deps.dagger_android_support
+    // Epoxy
+    implementation deps.epoxy
+    kapt deps.epoxy_processor
+    implementation deps.epoxy_databinding
+    // Circular Image view
+    implementation deps.circleimageview
+    // Otp
+    implementation deps.otp
+    // AHBottomNavigation view
+    implementation deps.ahbottomnavigation
+    // Glide
+    implementation deps.glide
+    annotationProcessor deps.glide_compiler
+    // Lottie Files
+    implementation deps.lottie
+    // custom crash
+    implementation deps.crashactivity
+    // navigation drawer
+    implementation deps.duo_navigation_drawer
+    // Firebase
+    implementation platform (deps.firebase_bom)
+    implementation deps.firebase_analytics
+    implementation deps.firebase_auth
+    implementation deps.browser
+    implementation deps.firebase_crashlytics
+    implementation deps.firebase_database
+    implementation deps.firebase_storage
+    // Spinner
+    implementation deps.spinner
+    // Google play services
+    implementation deps.places
+    implementation deps.maps
+    // moshi
+    implementation deps.moshi
+    implementation deps.moshi_kotlin
+    implementation deps.coroutines_core
+    implementation deps.coroutines_android
+    implementation deps.coroutines_adapter
+    implementation deps.timber
+    // retrofit
+    implementation deps.retrofit
+    implementation deps.converter_moshi
+    implementation deps.converter_scalars
+    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+}

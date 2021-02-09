@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="text"
+            type="String" />
+        <variable
+            name="isCenter"
+            type="Boolean" />
+        <variable
+            name="txtSize"
+            type="String" />
+        <variable
+            name="txtStyle"
+            type="String" />
+        <variable
+            name="txtColor"
+            type="String" />
+        <variable
+            name="imageType"
+            type="String" />
+        <variable
+            name="ivVisibility"
+            type="Boolean" />
+        <variable
+            name="layoutDirection"
+            type="Boolean" />
+    </data>
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:paddingStart="10dp"
+        android:layoutDirection="@{layoutDirection?android.util.LayoutDirection.RTL:android.util.LayoutDirection.LTR}"
+        android:paddingEnd="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{text}"
+            app:txtColor="@{txtColor}"
+            android:textColor="@color/black"
+            android:gravity="@{layoutDirection?android.view.Gravity.RIGHT:android.view.Gravity.LEFT}"
+            app:txtSize="@{txtSize}"
+            android:id="@+id/subTitle"
+            app:txtStyle="@{txtStyle}"
+            android:fontFamily="@font/linetocircular"/>
+    </RelativeLayout>
+</layout>
