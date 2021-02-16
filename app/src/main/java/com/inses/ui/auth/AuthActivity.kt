@@ -15,6 +15,7 @@ import com.inses.ui.auth.create.CreateLoadingFragment
 import com.inses.ui.auth.create.cookie.NameFragment
 import com.inses.ui.auth.create.createAuth.CreateAccountFragment
 import com.inses.ui.auth.create.createPassword.CreatePasswordFragment
+import com.inses.ui.auth.create.phone.PhoneFragment
 import com.inses.ui.auth.login.loginAuth.LoginAccountFragment
 import com.inses.ui.auth.login.loginPassword.LoginPasswordFragment
 import com.inses.ui.base.BaseActivity
@@ -62,13 +63,13 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthVIewModel>(), AuthNav
                     fragmentManager.beginTransaction().replace(mBinding.flAuth.id,fragment).addToBackStack("loading").commitAllowingStateLoss()
                 }
                 "failure" -> {
-                    showSnackBar("Failed","Failed to Login now!","")
+                    showSnackBar("Failed","Email Id already exists!","")
                     Handler(Looper.getMainLooper()).postDelayed({
                         startActivity(Intent(this,AuthActivity::class.java))
                     },2000)
                 }
                 "failed" -> {
-                    showSnackBar("Failed","Failed to create new user!","")
+                    showSnackBar("Failed","Failed to login!","")
                     Handler(Looper.getMainLooper()).postDelayed({
                         startActivity(Intent(this,AuthActivity::class.java))
                     },2000)            }
@@ -98,6 +99,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthVIewModel>(), AuthNav
             AuthVIewModel.Screen.CREATE->{ moveToCreateFragment() }
             AuthVIewModel.Screen.C_PASSWORD->{ moveToCreatePassword(params[0]!!) }
             AuthVIewModel.Screen.L_PASSWORD->{ moveToLoginPassword(params[0]!!) }
+            AuthVIewModel.Screen.C_PHONE->{moveToCPhone(params[0]!!,params[1]!!)}
             AuthVIewModel.Screen.NAME->{ moveToName(params[0]!!) }
             AuthVIewModel.Screen.L_HOME->{ moveToLoginHome(params[0]!!) }
             AuthVIewModel.Screen.GOOGLE->{ gsi() }
@@ -105,7 +107,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthVIewModel>(), AuthNav
                 startActivity(Intent(this,HomeActivity::class.java))
                 finish()
             }
-            AuthVIewModel.Screen.C_LOADING->{ moveToCreateLoading(params[0]!!,params[1]!!) }
+            AuthVIewModel.Screen.C_LOADING->{ moveToCreateLoading(params[0]!!) }
         }
     }
 
@@ -142,6 +144,13 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthVIewModel>(), AuthNav
         fragmentManager.beginTransaction().replace(mBinding.flAuth.id,fragment).addToBackStack("Name").commitAllowingStateLoss()
     }
 
+    private fun moveToCPhone(fName:String,lName:String){
+        viewModel.firstName.set(fName)
+        viewModel.secondName.set(lName)
+        val fragment = PhoneFragment()
+        val fragmentManager = activity.supportFragmentManager
+        fragmentManager.beginTransaction().replace(mBinding.flAuth.id,fragment).addToBackStack("Phone").commitAllowingStateLoss()
+    }
 
     private fun moveToLoginHome(password:String){
         viewModel.password.set(password)
@@ -164,9 +173,8 @@ class AuthActivity : BaseActivity<ActivityAuthBinding, AuthVIewModel>(), AuthNav
         }
     }
 
-    private fun moveToCreateLoading(fName:String,lName:String){
-        viewModel.firstName.set(fName)
-        viewModel.secondName.set(lName)
+    private fun moveToCreateLoading(phone:String){
+        viewModel.phone.set(phone)
         viewModel.createUserWithEmailAndPassword()
     }
 }

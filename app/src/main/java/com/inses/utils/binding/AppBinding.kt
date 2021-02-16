@@ -174,22 +174,21 @@ fun setImage(view:ImageView,url:String?){
     }
 }
 
+
+@BindingAdapter("iType")
+fun setIType(view: ImageView, type: String?){
+    if(!type.isNullOrEmpty() && type!="empty") {
+        Glide.with(view).load(type).into(view)
+    }
+}
+
 @BindingAdapter("setBack")
-fun setBack(view:View,boolean: Boolean){
-    if(boolean){
-        var i = (0..10).random()
-        when(i) {
-            0 -> view.setBackgroundResource(R.color.cancellation_yellow)
-            1 -> view.setBackgroundResource(R.color.teal_200)
-            2 -> view.setBackgroundResource(R.color.teal_700)
-            3 -> view.setBackgroundResource(R.color.example_4_green)
-            4 -> view.setBackgroundResource(R.color.cancellation_green)
-            5 -> view.setBackgroundResource(R.color.purple_200)
-            6 -> view.setBackgroundResource(R.color.cancel_text_color)
-            7 -> view.setBackgroundResource(R.color.colorAccent)
-            8 -> view.setBackgroundResource(R.color.c_rausch_dark)
-            9 -> view.setBackgroundResource(R.color.colorBottomNavigationAccent)
-            10 -> view.setBackgroundResource(R.color.colorBottomNavigationNotification)
-        }
+fun setBack(view:View,type:String){
+    if(type=="In Progress"){
+        view.setBackgroundResource(R.drawable.curve_button)
+    }else if(type=="Confirmed"){
+        view.setBackgroundResource(R.drawable.curve_button_two)
+    }else if(type=="Completed"){
+        view.setBackgroundResource(R.drawable.completed_back)
     }
 }

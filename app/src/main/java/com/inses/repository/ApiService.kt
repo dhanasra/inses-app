@@ -8,7 +8,6 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import kotlinx.coroutines.Deferred
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.*
@@ -45,16 +44,59 @@ interface ApiService {
     ): Deferred<List<BookingData>>
 
     @Headers("Content-Type:application/json")
+    @POST("booking/get/history")
+    fun getBookingHistory(
+        @Body requestBody: RequestBody
+    ): Deferred<List<BookingData>>
+
+    @Headers("Content-Type:application/json")
     @POST("service/get")
     fun getAllService(
             @Body requestBody: RequestBody
     ): Deferred<List<Service>>
 
     @Headers("Content-Type:application/json")
+    @POST("booking/update/payment")
+    fun updatePayment(
+        @Body requestBody: RequestBody
+    ): Deferred<String>
+
+    @Headers("Content-Type:application/json")
+    @POST("booking/update/review")
+    fun updateReview(
+        @Body requestBody: RequestBody
+    ): Deferred<String>
+
+    @Headers("Content-Type:application/json")
     @POST("service/get")
     fun getService(
             @Body requestBody: RequestBody
     ): Deferred<Service>
+
+    @Headers("Content-Type:application/json")
+    @POST("support/add")
+    fun addSupport(
+            @Body requestBody: RequestBody
+    ): Deferred<String>
+
+    @Headers("Content-Type:application/json")
+    @POST("token/add")
+    fun addToken(
+        @Body requestBody: RequestBody
+    ): Deferred<String>
+
+
+    @Headers("Content-Type:application/json")
+    @POST("token/update")
+    fun updateToken(
+        @Body requestBody: RequestBody
+    ): Deferred<String>
+
+    @Headers("Content-Type:application/json")
+    @POST("feedback/add")
+    fun addFeedback(
+            @Body requestBody: RequestBody
+    ): Deferred<String>
 
     object AppApi{
         val retrofitService:ApiService by lazy {

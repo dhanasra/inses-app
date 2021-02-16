@@ -8,15 +8,21 @@ import com.inses.ui.auth.create.CreateLoadingViewModel
 import com.inses.ui.auth.create.cookie.NameViewModel
 import com.inses.ui.auth.create.createAuth.CreateAccountViewModel
 import com.inses.ui.auth.create.createPassword.CreatePasswordViewModel
+import com.inses.ui.auth.create.phone.PhoneViewModel
 import com.inses.ui.auth.login.loginAuth.LoginAccountFragment
 import com.inses.ui.auth.login.loginAuth.LoginAccountViewModel
 import com.inses.ui.auth.login.loginPassword.LoginPasswordViewModel
 import com.inses.ui.bookings.MyBookingsViewModel
 import com.inses.ui.bookings.fragments.HistoryViewModel
 import com.inses.ui.bookings.fragments.OnGoingViewModel
+import com.inses.ui.bookings.fragments.details.OrderDetailsViewModel
+import com.inses.ui.bookings.fragments.history.HistoryDetailsViewModel
+import com.inses.ui.bookings.fragments.payment.PaymentSelectViewModel
+import com.inses.ui.bookings.fragments.payment.PaymentSuccessViewModel
 import com.inses.ui.dashboard.DashboardViewModel
 import com.inses.ui.dashboard.makeService.MakeServiceViewModel
 import com.inses.ui.dashboard.makeService.steps.*
+import com.inses.ui.dashboard.search.SearchViewModel
 import com.inses.ui.home.HomeViewModel
 import com.inses.ui.profile.ProfileViewModel
 import com.inses.ui.profile.about.AboutUsViewModel
@@ -71,6 +77,11 @@ abstract class ViewModelModule {
 
     @Binds
     @IntoMap
+    @ViewModelKey(PhoneViewModel::class)
+    abstract fun bindPhoneViewModel(phoneViewModel: PhoneViewModel): ViewModel
+
+    @Binds
+    @IntoMap
     @ViewModelKey(CreateLoadingViewModel::class)
     abstract fun bindCreateLoadingViewModel(createLoadingViewModel: CreateLoadingViewModel): ViewModel
 
@@ -78,6 +89,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DashboardViewModel::class)
     abstract fun bindDashboardViewModel(dashboardViewModel: DashboardViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    abstract fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
 
     @Binds
     @IntoMap
@@ -133,6 +149,26 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(OnGoingViewModel::class)
     abstract fun bindOnGoingViewModel(onGoingViewModel: OnGoingViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OrderDetailsViewModel::class)
+    abstract fun bindOrderDetailsViewModel(orderDetailsViewModel: OrderDetailsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(HistoryDetailsViewModel::class)
+    abstract fun bindHistoryDetailsViewModel(historyDetailsViewModel: HistoryDetailsViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PaymentSelectViewModel::class)
+    abstract fun bindPaymentSelectViewModel(paymentSelectViewModel: PaymentSelectViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PaymentSuccessViewModel::class)
+    abstract fun bindPaymentSuccessViewModel(paymentSuccessViewModel: PaymentSuccessViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -27,5 +27,115 @@ Maintenance
 LED Tv
 New Connection
 Painting</string>
-
+    <string name="spinner_title">Area</string>
+    <string-array name="services">
+        <item>Plumbing</item>
+        <item>Painting</item>
+        <item>Maintenance</item>
+        <item>LED Tv</item>
+        <item>New connection</item>
+        <item>Electricals</item>
+        <item>Installation</item>
+    </string-array>
+    <string-array name="places">
+        <item>80 Feet Road</item>
+        <item>Alagappan Nagar</item>
+        <item>Alagar Kavil Road</item>
+        <item>Amman Sannathi Street</item>
+        <item>Anaiyur</item>
+        <item>Andalpuram</item>
+        <item>Anna Nagar</item>
+        <item>Anuppanadi</item>
+        <item>Arappalayam</item>
+        <item>Arasaradi</item>
+        <item>Avaniyapuram</item>
+        <item>Bibikulam</item>
+        <item>Bypass Road</item>
+        <item>Chinna Chokkikulam</item>
+        <item>Chokikulam</item>
+        <item>Dhanappa Mudali Street</item>
+        <item>East Avani Moola Street</item>
+        <item>East Marret Street</item>
+        <item>East Masi Street</item>
+        <item>East Veli Street</item>
+        <item>Ellis Nagar</item>
+        <item>Gandhi Nagar</item>
+        <item>Gnanavolivupuram</item>
+        <item>Goripalayam</item>
+        <item>Jaihindpuram</item>
+        <item>K.K. Nagar</item>
+        <item>K.Pudur</item>
+        <item>Kaka Thoppu Street</item>
+        <item>Kalavasal</item>
+        <item>Kamarajar Salai</item>
+        <item>Kansamettu Street</item>
+        <item>Kochadai</item>
+        <item>Kodikulam</item>
+        <item>Koodal Nagar</item>
+        <item>Krishnapuram Colony</item>
+        <item>Krishnarayar Tank Road</item>
+        <item>Lakshmipuram</item>
+        <item>Mahaboopalayam</item>
+        <item>Manjanakara Street</item>
+        <item>Mattuthavani</item>
+        <item>Melakkal Road</item>
+        <item>Melur Road</item>
+        <item>Munichalai Road</item>
+        <item>Naicker New Street</item>
+        <item>Narayanapuram</item>
+        <item>Narimedu</item>
+        <item>Nethaji Road</item>
+        <item>New Mahalipatti Road</item>
+        <item>New Natham Road</item>
+        <item>North Chitrai Street</item>
+        <item>North Masi Street</item>
+        <item>North Veli Street</item>
+        <item>Othakadai</item>
+        <item>Palace Road</item>
+        <item>Palanganatham</item>
+        <item>Pasumalai</item>
+        <item>Ponmeni</item>
+        <item>PT Rajan Road</item>
+        <item>S S Colony</item>
+        <item>Sathya Sai Nagar</item>
+        <item>Sellur</item>
+        <item>Sellur Road</item>
+        <item>Shenoy Nagar</item>
+        <item>Simmakkal</item>
+        <item>South Avani Moola Street</item>
+        <item>South Gate</item>
+        <item>South Marret Street</item>
+        <item>South Masi Street</item>
+        <item>South Veli Street</item>
+        <item>SS Colony</item>
+        <item>Subramaniapuram</item>
+        <item>Surya Nagar</item>
+        <item>Tallakulam</item>
+        <item>Tamil Sangam Road</item>
+        <item>Theni Main Road</item>
+        <item>Town Hall Road</item>
+        <item>TPK Road</item>
+        <item>TVS Nagar</item>
+        <item>Uthangudi</item>
+        <item>Vakkil New Street</item>
+        <item>Velmurugan Nagar</item>
+        <item>Vengalakadai Street</item>
+        <item>Vilangudi</item>
+        <item>Villapuram</item>
+        <item>Virattipathu</item>
+        <item>Visalakshipuram Main Road</item>
+        <item>Vishwanathapuram</item>
+        <item>West Avani Moola Street</item>
+        <item>West Masi Street</item>
+        <item>West Perumal Maistry Street</item>
+        <item>West Tower Street</item>
+        <item>West Vadampokki Street</item>
+        <item>West Veli Street</item>
+    </string-array>
+    <string name="support1_title">How can I book service online?</string>
+    <string name="support1_desc">Go to home and select the service you want to book. Add any item to your cart, select the address where you want the service and schedule it according to your convenience. After that, just pay and book the service and we will take care of the rest</string>
+    <string name="support2_title">How to contact INSES Partner for my booking?</string>
+    <string name="support2_desc">Although you should not need to call your INSES Partner for your booking, but still in case you need to, Use the below CALL US to contact INSES Partner. You will redirect to INSES Partner. He will help you.</string>
+    <string name="support3_title">What happens if I am not satisfied with the quality of service?</string>
+    <string name="support3_desc">In an unfortunate case where you are not satisfied with the quality of service, we will happy to assist you and understand your query in detail. Please use the below options to reach out to us</string>
 </resources>

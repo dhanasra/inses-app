@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
@@ -35,6 +36,7 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding,ProfileViewModel>() 
         super.onViewCreated(view, savedInstanceState)
         mBinding = viewDataBinding!!
         setUp()
+        subscribeToLiveData()
     }
 
     private fun setUp(){
@@ -124,6 +126,19 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding,ProfileViewModel>() 
         fbDialogue.setContentView(R.layout.dialogue_feed_back)
         val submit = fbDialogue.findViewById(R.id.submitButton) as TextView
         val cancel = fbDialogue.findViewById(R.id.cancelButton) as TextView
+        val ed = fbDialogue.findViewById(R.id.ed) as EditText
+        submit.onClick {
+            if(ed.text.toString().isNotEmpty()) {
+                viewModel.message.set(ed.text.toString())
+                viewModel.sendFeedback()
+                fbDialogue.cancel()
+            }else{
+                showSnackBar("Invalid","Please Type a Feedback to send","")
+            }
+        }
+        cancel.onClick {
+            fbDialogue.cancel()
+        }
         fbDialogue.show()
     }
 
@@ -132,6 +147,9 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding,ProfileViewModel>() 
         soDialogue.setContentView(R.layout.dialogue_signout)
         val submit = soDialogue.findViewById(R.id.submitButton) as TextView
         val cancel = soDialogue.findViewById(R.id.cancelButton) as TextView
+        cancel.onClick {
+            soDialogue.cancel()
+        }
         submit.onClick {
             FirebaseAuth.getInstance().signOut()
             startActivity(Intent(requireContext(),SplashActivity::class.java))
@@ -140,4 +158,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding,ProfileViewModel>() 
         soDialogue.show()
     }
 
+    private fun subscribeToLiveData(){
+        viewModel.response.observe(requireActivity(),{
+            if(it=="success"){
+                showSnackBar("Success","Successfully reported your feedback","")
+            }
+        })
+    }
 }

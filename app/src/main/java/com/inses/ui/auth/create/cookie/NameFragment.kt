@@ -47,7 +47,7 @@ class NameFragment : BaseFragment<FragmentNameBinding,NameViewModel>() {
                 showSnackBar("Invalid","Last name should not be empty","")
             }else {
                 hideKeyboard()
-                RxBus.publish(AuthUiEvent.Navigate(AuthVIewModel.Screen.C_LOADING,viewModel.firstName.get()!!.trim(),viewModel.lastName.get()!!.trim()))
+                RxBus.publish(AuthUiEvent.Navigate(AuthVIewModel.Screen.C_PHONE,viewModel.firstName.get()!!.trim(),viewModel.lastName.get()!!.trim()))
             }
         }
     }

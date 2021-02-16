@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.inses.ui.dashboard.search.SearchViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dashboard.search.SearchActivity">
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            app:iconifiedByDefault="false"
+            app:searchIcon="@null"
+            android:background="@color/white"
+            app:queryHint="Search here"/>
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/lv1"
+            android:minHeight="100dp"
+            android:divider="@color/semi_white"
+            android:dividerHeight="2dp"
+            android:layout_below="@+id/searchView"/>
+    </RelativeLayout>
+</layout>

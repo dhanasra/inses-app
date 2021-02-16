@@ -7,6 +7,7 @@ import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.inses.Constants
 import com.inses.repository.ApiService
 import com.inses.ui.base.BaseViewModel
@@ -26,7 +27,15 @@ class MakeServiceViewModel @Inject constructor(context: Context) : BaseViewModel
     private val pref: SharedPreferences = context.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
     val editor: SharedPreferences.Editor = pref.edit()
 
-    var phoneNumber = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"8056384773")
+    var phoneNumber = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"")
+    var email = pref.getString(AppPreferenceHelper.PREF_KEY_EMAIL,"")
+    var name = """${pref.getString(AppPreferenceHelper.PREF_KEY_FIRST_NAME, "")} ${
+        pref.getString(
+            AppPreferenceHelper.PREF_KEY_LAST_NAME,
+            ""
+        )
+    }"""
+
     var serviceName = ObservableField("")
     var perAmount = ObservableField("")
     var image = ObservableField("")
@@ -36,6 +45,8 @@ class MakeServiceViewModel @Inject constructor(context: Context) : BaseViewModel
     var locality = ObservableField("")
     var no = ObservableField("")
     var phone = ObservableField("")
+    var area = ObservableField("")
+    var nearBy = ObservableField("")
     var street = ObservableField("")
     var serviceDate = ObservableField("")
     var serviceTime = ObservableField("")
@@ -57,9 +68,13 @@ class MakeServiceViewModel @Inject constructor(context: Context) : BaseViewModel
 
     fun makeService(){
         viewModelScope.launch {
-            var phoneNumber = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"8056384773")
+            var phoneNumber = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"")
             val jsonBody= JSONObject()
-            jsonBody.put("id","8056384773")
+            jsonBody.put("id",phoneNumber)
+            jsonBody.put("profilePic","empty")
+            jsonBody.put("customerId",FirebaseAuth.getInstance().uid)
+            jsonBody.put("name",name)
+            jsonBody.put("email",email)
             jsonBody.put("phone",phone.get()!!.trim())
             jsonBody.put("serviceName",serviceName.get()!!.trim())
             jsonBody.put("serviceType",type.get()!!.trim())
@@ -72,11 +87,14 @@ class MakeServiceViewModel @Inject constructor(context: Context) : BaseViewModel
             jsonBody.put("discount", discount.get()!!.trim())
             jsonBody.put("payable", payable.get()!!.trim())
             jsonBody.put("locality", locality.get()!!.trim())
+            jsonBody.put("area", area.get()!!.trim())
+            jsonBody.put("nearBy", nearBy.get()!!.trim())
             jsonBody.put("houseNo", no.get()!!.trim())
             jsonBody.put("street", street.get()!!.trim())
             jsonBody.put("orderDate",orderDate.get()!!.trim())
             jsonBody.put("orderTime", getTimeInMillis().toString())
             jsonBody.put("status", "In Progress")
+            jsonBody.put("transactionData","empty")
             val requestBody = RequestBody.create(MediaType.parse("application/json"), jsonBody.toString())
             Log.d("details", getTimeInMillis())
             val getDeferredUserDetails = ApiService.AppApi.retrofitService.addBooking(requestBody)

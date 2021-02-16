@@ -101,6 +101,7 @@ dependencies {
     implementation deps.firebase_crashlytics
     implementation deps.firebase_database
     implementation deps.firebase_storage
+    implementation 'com.google.firebase:firebase-messaging'
     // Spinner
     implementation deps.spinner
     // Google play services
@@ -117,5 +118,6 @@ dependencies {
     implementation deps.retrofit
     implementation deps.converter_moshi
     implementation deps.converter_scalars
-    compile 'com.squareup.okhttp3:logging-interceptor:3.3.1'
+    // razorpay
+    implementation 'com.razorpay:checkout:1.6.5'
 }

@@ -8,6 +8,7 @@
             type="com.inses.ui.bookings.fragments.HistoryViewModel" />
     </data>
     <RelativeLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.bookings.fragments.HistoryFragment">
@@ -15,9 +16,10 @@
             android:paddingBottom="40dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/ongoingEpoxyRecyclerView"
+            android:id="@+id/historyEpoxyRecyclerView"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
         <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/empty"
             android:background="@color/white"
             android:layout_width="match_parent"

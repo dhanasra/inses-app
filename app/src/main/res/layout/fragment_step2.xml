@@ -37,13 +37,41 @@
                 <com.google.android.gms.maps.MapView
                     android:id="@+id/mapView"
                     android:layout_width="match_parent"
-                    android:layout_height="240dp"/>
+                    android:layout_height="200dp"/>
                 <TextView
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="@dimen/text_size_h6"
+                    android:textSize="@dimen/text_size_h5"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Area"/>
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Spinner
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:id="@+id/spinner"
+                        android:textSize="@dimen/text_size_h6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:prompt="@string/spinner_title" />
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="@dimen/text_size_h5"
+                    android:layout_width="match_parent"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="Location / Society"/>
                 <LinearLayout
@@ -66,7 +94,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textSize="@dimen/text_size_h6"
+                            android:textSize="@dimen/text_size_h5"
                             android:textColor="@color/black"
                             android:inputType="text"
                             android:text="@={viewModel.locality}"
@@ -80,7 +108,8 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="@dimen/text_size_h6"
+                    android:textSize="@dimen/text_size_h5"
+                    android:textColor="@color/black"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="House / Flat no"/>
@@ -104,7 +133,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textSize="@dimen/text_size_h6"
+                            android:textSize="@dimen/text_size_h5"
                             android:textColor="@color/black"
                             android:text="@={viewModel.no}"
                             android:inputType="text"
@@ -118,9 +147,10 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="@dimen/text_size_h6"
+                    android:textSize="@dimen/text_size_h5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Street Address"/>
                 <LinearLayout
                     android:padding="2dp"
@@ -142,7 +172,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textSize="@dimen/text_size_h6"
+                            android:textSize="@dimen/text_size_h5"
                             android:text="@={viewModel.street}"
                             android:textColor="@color/black"
                             android:inputType="text"
@@ -156,9 +186,49 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
-                    android:textSize="@dimen/text_size_h6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_h5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="Near by"/>
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/nearByTextInputLayout"
+                        android:layout_width="match_parent"
+                        app:hintEnabled="false"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/nearByTextInputEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="@dimen/text_size_h5"
+                            android:text="@={viewModel.nearBy}"
+                            android:textColor="@color/black"
+                            android:inputType="text"
+                            android:fontFamily="sans-serif"
+                            android:background="@color/white"
+                            android:hint="Enter your near by marks" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="@dimen/text_size_h5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="Phone number"/>
                 <LinearLayout
                     android:padding="2dp"
@@ -180,7 +250,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:padding="10dp"
-                            android:textSize="@dimen/text_size_h6"
+                            android:textSize="@dimen/text_size_h5"
                             android:text="@={viewModel.phoneNumber}"
                             android:textColor="@color/black"
                             android:inputType="phone"

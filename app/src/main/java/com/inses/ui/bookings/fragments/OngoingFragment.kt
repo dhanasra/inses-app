@@ -12,6 +12,8 @@ import com.inses.R
 import com.inses.databinding.FragmentOngoingBinding
 import com.inses.loader
 import com.inses.ui.base.BaseFragment
+import com.inses.ui.bookings.fragments.details.OrderDetailsActivity
+import com.inses.ui.bookings.fragments.payment.PaymentSelectActivity
 import com.inses.ui.dashboard.makeService.MakeServiceActivity
 import com.inses.ui.home.HomeActivity
 import com.inses.utils.onClick
@@ -63,6 +65,15 @@ class OngoingFragment : BaseFragment<FragmentOngoingBinding,OnGoingViewModel>() 
                     viewHolderOnGoingBookings {
                         id()
                         booking(booking)
+                        onClick(View.OnClickListener {
+                            val i = if(booking.status!="Completed"){
+                                Intent(requireContext(), OrderDetailsActivity::class.java)
+                            }else{
+                                Intent(requireContext(), PaymentSelectActivity::class.java)
+                            }
+                            i.putExtra("booking", booking)
+                            startActivity(i)
+                        })
                     }
                 }
             }

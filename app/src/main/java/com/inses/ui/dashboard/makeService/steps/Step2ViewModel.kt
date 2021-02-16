@@ -13,4 +13,6 @@ class Step2ViewModel @Inject constructor(context: Context):BaseViewModel<MakeSer
     var no = ObservableField("")
     var street = ObservableField("")
     var phoneNumber = ObservableField("")
+    var nearBy = ObservableField("")
+    var area = ObservableField("")
 }

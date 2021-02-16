@@ -16,6 +16,13 @@ object DateUtils {
         return Cdate(day, month, year, ci.toString(), fTime)
     }
 
+    fun getToday():List<String>{
+        val gc = GregorianCalendar()
+        val date = SimpleDateFormat("d", Locale.ENGLISH).format(gc.timeInMillis)
+        val day = SimpleDateFormat("EEE", Locale.ENGLISH).format(gc.timeInMillis)
+        return listOf(date,day,gc.timeInMillis.toString())
+    }
+
     fun getTomorrow():List<String>{
         val gc = GregorianCalendar()
         gc.add(Calendar.DATE, 1)

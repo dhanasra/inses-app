@@ -67,6 +67,9 @@ class Step4Fragment(bookingData: BookingData) : BaseFragment<FragmentStep4Bindin
                 text("Summary Of Your Service")
                 txtSize("medium")
                 txtColor("b")
+                back(View.OnClickListener {
+                    requireActivity().onBackPressed()
+                })
             }
         }
     }

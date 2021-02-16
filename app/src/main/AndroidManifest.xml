@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.inses">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -13,19 +14,43 @@
     <application
         android:name=".App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_launcher_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.INSES">
-        <activity android:name=".ui.dashboard.makeService.steps.BookingSuccessActivity"></activity>
-        <activity android:name=".ui.auth.AuthActivity" />
+        <activity android:name=".ui.dashboard.search.SearchActivity"/>
+        <activity
+            android:name=".ui.bookings.fragments.history.HistoryDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookings.fragments.payment.PaymentSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookings.fragments.payment.PaymentSelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.bookings.fragments.details.OrderDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.dashboard.makeService.steps.BookingSuccessActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.auth.AuthActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.profile.myProfile.MyProfileActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.INSES.PRIMARY" />
-        <activity android:name=".ui.profile.about.AboutUsActivity" />
-        <activity android:name=".ui.support.detail.CustomerMessageActivity" />
-        <activity android:name=".ui.support.detail.CustomerSupportActivity" />
+        <activity
+            android:name=".ui.profile.about.AboutUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.support.detail.CustomerMessageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.support.detail.CustomerSupportActivity"
+            android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,17 +66,26 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".ui.dashboard.makeService.MakeServiceActivity" />
-        <activity android:name=".ui.home.HomeActivity" />
+        <activity
+            android:name=".ui.dashboard.makeService.MakeServiceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.INSES.PRIMARY"/>
         <activity
             android:name=".ui.splash.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.INSES.PRIMARY">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- Add your API key here -->
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_hycKdEgfS4290p" />
 
         <uses-library
             android:name="com.google.android.maps"

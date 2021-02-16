@@ -37,6 +37,7 @@
         <EditText
             android:layout_marginTop="20dp"
             android:layout_width="match_parent"
+            android:id="@+id/ed"
             android:layout_height="wrap_content"
             android:hint="share your experiences with us"
             android:paddingBottom="50dp"

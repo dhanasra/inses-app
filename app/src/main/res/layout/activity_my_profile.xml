@@ -17,7 +17,7 @@
             android:paddingStart="20dp"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:background="@color/color_primary"
+            android:background="@color/color_secondary"
             android:layout_width="match_parent"
             android:layout_height="150dp">
             <de.hdodenhof.circleimageview.CircleImageView
@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_h3"
-                    android:text="Dhana Sekaran"
+                    android:text="@{viewModel.name}"
                     android:fontFamily="@font/linetocircular"
                     android:textColor="@color/white"/>
                 <TextView
@@ -47,7 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text_size_h6"
-                    android:text="Customer id: 243563562"
+                    android:text="@{viewModel.id}"
                     android:fontFamily="@font/linetocircular"
                     android:textColor="@color/white"/>
             </LinearLayout>
@@ -76,7 +76,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_h6"
-                android:text="1dhana625@gmail.com"
+                android:text="@{viewModel.email}"
                 android:fontFamily="@font/linetocircular"
                 android:textColor="@color/black"/>
             <TextView
@@ -98,7 +98,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/text_size_h6"
-                android:text="8056384773"
+                android:text="@{viewModel.phoneNumber}"
                 android:fontFamily="@font/linetocircular"
                 android:textColor="@color/black"/>
         </LinearLayout>

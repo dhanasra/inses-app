@@ -29,6 +29,8 @@ class SplashViewModel @Inject constructor(context: Context):BaseViewModel<Splash
 
     }
 
+
+
     private fun decideNextActivity(type:Boolean){
         if(type){
             mResponse.value = "success"

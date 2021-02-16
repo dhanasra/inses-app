@@ -10,6 +10,7 @@ import com.inses.*
 import com.inses.databinding.FragmentDashboardBinding
 import com.inses.ui.base.BaseFragment
 import com.inses.ui.dashboard.makeService.MakeServiceActivity
+import com.inses.ui.dashboard.search.SearchActivity
 import com.inses.utils.withModels
 import javax.inject.Inject
 
@@ -40,7 +41,7 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding,DashboardViewMod
             viewHolderTitleText {
                 id("title")
                 text("Hello")
-                text2("Dhana!")
+                text2("${viewModel.name}!")
                 tvVisibility(true)
                 txtSize("medium")
                 txtColor("b")
@@ -52,14 +53,14 @@ class DashboardFragment : BaseFragment<FragmentDashboardBinding,DashboardViewMod
             viewHolderCall {
                 id("call")
                 onClick(View.OnClickListener {
-                    startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+"8825862159")))
+                    startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:"+Constants.PHONE_NUMBER)))
                 })
                 spanSizeOverride{_,_,_->2}
             }
             viewHolderSearch {
                 id("search")
                 onClick(View.OnClickListener {
-
+                    startActivity(Intent(requireContext(),SearchActivity::class.java))
                 })
                 spanSizeOverride{_,_,_->2}
             }

@@ -75,7 +75,7 @@ class MakeServiceActivity : BaseActivity<ActivityMakeServiceBinding,MakeServiceV
         when(screen){
             MakeServiceViewModel.Screen.PRICE -> moveToPriceFragment(params[0]!!,params[1]!!,params[2]!!,params[3]!!)
             MakeServiceViewModel.Screen.ADDRESS -> moveToAddressFragment(params[0]!!,params[1]!!)
-            MakeServiceViewModel.Screen.SCHEDULE -> moveToScheduleFragment(params[0]!!,params[1]!!,params[2]!!,params[3]!!)
+            MakeServiceViewModel.Screen.SCHEDULE -> moveToScheduleFragment(params[0]!!,params[1]!!,params[2]!!,params[3]!!,params[4]!!,params[5]!!)
             MakeServiceViewModel.Screen.BOOK -> moveToBookFragment(params[0]!!,params[1]!!)
         MakeServiceViewModel.Screen.FINISH -> moveToFinishFragment(params[0]!!,params[1]!!,params[2]!!)
         }
@@ -100,11 +100,13 @@ class MakeServiceActivity : BaseActivity<ActivityMakeServiceBinding,MakeServiceV
         fragmentManager.beginTransaction().replace(mBinding.flMakeService.id,fragment).addToBackStack("step2").commitAllowingStateLoss()
     }
 
-    private fun moveToScheduleFragment(locality:String,no:String,street:String,phone:String){
+    private fun moveToScheduleFragment(locality:String,no:String,street:String,phone:String,area:String,nearBy:String){
         viewModel.locality.set(locality)
         viewModel.no.set(no)
         viewModel.street.set(street)
         viewModel.phone.set(phone)
+        viewModel.area.set(area)
+        viewModel.nearBy.set(nearBy)
         val fragment = Step3Fragment()
         val fragmentManager = activity.supportFragmentManager
         fragmentManager.beginTransaction().replace(mBinding.flMakeService.id,fragment).addToBackStack("step3").commitAllowingStateLoss()
@@ -116,6 +118,7 @@ class MakeServiceActivity : BaseActivity<ActivityMakeServiceBinding,MakeServiceV
 
         val booking = BookingData(
             viewModel.phoneNumber!!,
+                "","","","","","","",
             viewModel.serviceName.get()!!,
             viewModel.type.get()!!,
             viewModel.image.get()!!,
@@ -130,7 +133,8 @@ class MakeServiceActivity : BaseActivity<ActivityMakeServiceBinding,MakeServiceV
             viewModel.locality.get()!!,
             viewModel.no.get()!!,
             viewModel.street.get()!!,
-            "","","",false
+            "","","",false,
+                "","","","","",false
         )
 
         val fragment = Step4Fragment(booking)

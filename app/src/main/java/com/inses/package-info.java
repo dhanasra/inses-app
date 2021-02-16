@@ -16,7 +16,15 @@
         R.layout.view_holder_app_name,
         R.layout.view_holder_call,
         R.layout.loader,
-        R.layout.view_holder_on_going_bookings
+        R.layout.view_holder_on_going_bookings,
+        R.layout.viewholder_listing_details_header,
+        R.layout.viewholder_listing_details_right_left,
+        R.layout.viewholder_listing_details_section_header,
+        R.layout.viewholder_listing_details_sublist,
+        R.layout.viewholder_listing_details_title,
+        R.layout.image_view,
+        R.layout.shadow_view,
+        R.layout.finished_bottom
 })
 package com.inses;
 

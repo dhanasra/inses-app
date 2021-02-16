@@ -7,17 +7,26 @@ import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 import com.inses.Constants
+import com.inses.repository.ApiService
 import com.inses.ui.base.BaseViewModel
+import com.inses.utils.DateUtils
 import com.inses.utils.resources.AppPreferenceHelper
+import kotlinx.coroutines.launch
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import org.json.JSONObject
 import java.util.*
 import javax.inject.Inject
 
@@ -34,12 +43,14 @@ class AuthVIewModel @Inject constructor(context: Context):BaseViewModel<AuthNavi
     var password = ObservableField("")
     var firstName = ObservableField("")
     var secondName = ObservableField("")
+    var phone = ObservableField("")
 
     enum class Screen{
         LOGIN,
         CREATE,
         C_PASSWORD,
         L_PASSWORD,
+        C_PHONE,
         NAME,
         L_HOME,
         HOME,
@@ -63,12 +74,11 @@ class AuthVIewModel @Inject constructor(context: Context):BaseViewModel<AuthNavi
                     editor.putString(AppPreferenceHelper.PREF_KEY_IMAGE,"")
                     editor.putString(AppPreferenceHelper.PREF_KEY_EMAIL,email.get()!!.trim())
                     editor.putString(AppPreferenceHelper.PREF_KEY_FIREBASE_USER_ID,FirebaseAuth.getInstance().uid!!)
-                    editor.putString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"")
+                    editor.putString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,phone.get()!!.trim())
                     editor.putString(AppPreferenceHelper.PREF_KEY_CUSTOMER_ID,"${FirebaseAuth.getInstance().uid!!}-${Calendar.getInstance().timeInMillis}")
                     editor.commit()
                     editor.apply()
-
-                    mResponse.value = "successfully created"
+                    getFirebasetoken()
                 }else{
                     mResponse.value = "failure"
                 }
@@ -78,24 +88,57 @@ class AuthVIewModel @Inject constructor(context: Context):BaseViewModel<AuthNavi
             }
     }
 
-    fun signInWithEmailAndPassword():String{
-        var result=""
+
+    private fun getFirebasetoken(){
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+            if (!task.isSuccessful) {
+                Log.w("token", "Fetching FCM registration token failed", task.exception)
+                return@OnCompleteListener
+            }
+            val token = task.result
+            addToken(token!!)
+            Log.d("token", token)
+        })
+    }
+
+    private fun addToken(token:String){
+        viewModelScope.launch {
+            val jsonBody= JSONObject()
+            jsonBody.put("phone",phone.get()!!.toString())
+            jsonBody.put("token",token)
+            val requestBody= RequestBody.create(MediaType.parse("application/json"),jsonBody.toString())
+            Log.d("details", DateUtils.getTimeInMillis())
+            val getDeferredUserDetails = ApiService.AppApi.retrofitService.addToken(requestBody)
+            try {
+                val details = getDeferredUserDetails.await()
+                Log.d("details",details.toString())
+                mResponse.value = "successfully created"
+            } catch (e: Exception) {
+                Log.d("details",e.message.toString())
+                mResponse.value = "empty"
+            }
+        }
+    }
+
+    fun signInWithEmailAndPassword(){
         firebaseAuth.signInWithEmailAndPassword(email.get()!!.trim().toLowerCase(Locale.ROOT),
             password.get()!!.trim())
             .addOnCompleteListener {
-                if(it.isSuccessful){
+                if(!it.isSuccessful){
+                    mResponse.value = "failed"
+                }else{
+
                     user = firebaseAuth.currentUser!!
 
-                    result = "successfully logged"
-                }else{
-                    result = "failed"
+                    mResponse.value = "successfully logged"
                 }
             }
             .addOnFailureListener {
                 Log.d("login",it.message.toString())
             }
-        return result
     }
+
+
 
 
     fun handleGSinResult(task: Task<GoogleSignInAccount>){

@@ -43,7 +43,9 @@ class SupportFragment : BaseFragment<FragmentSupportBinding, SupportViewModel>()
             viewHolderTextAlone {
                 id("su1")
                 onClick(View.OnClickListener {
-                    startActivity(Intent(requireContext(),CustomerSupportActivity::class.java))
+                    var i = Intent(requireContext(),CustomerSupportActivity::class.java)
+                    i.putExtra("type","one")
+                    startActivity(i)
                 })
                 text("How can I book a service online?")
             }
@@ -51,15 +53,13 @@ class SupportFragment : BaseFragment<FragmentSupportBinding, SupportViewModel>()
                 id("light1")
             }
             viewHolderTextAlone {
-                id("su2")
-                text("Can I cancel or reschedule my service?")
-            }
-            viewHolderLight {
-                id("light2")
-            }
-            viewHolderTextAlone {
                 id("su3")
                 text("How to contact INSES partner for my booking?")
+                onClick(View.OnClickListener {
+                    var i = Intent(requireContext(),CustomerSupportActivity::class.java)
+                    i.putExtra("type","two")
+                    startActivity(i)
+                })
             }
             viewHolderLight {
                 id("light3")
@@ -67,6 +67,11 @@ class SupportFragment : BaseFragment<FragmentSupportBinding, SupportViewModel>()
             viewHolderTextAlone {
                 id("su4")
                 text("What happens if I am not satisfied with the quality of service?")
+                onClick(View.OnClickListener {
+                    var i = Intent(requireContext(),CustomerSupportActivity::class.java)
+                    i.putExtra("type","three")
+                    startActivity(i)
+                })
             }
             viewHolderLight {
                 id("light4")

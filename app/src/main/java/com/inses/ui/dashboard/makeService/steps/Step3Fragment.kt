@@ -14,7 +14,7 @@ import com.inses.databinding.FragmentStep3Binding
 import com.inses.timeItem
 import com.inses.ui.base.BaseFragment
 import com.inses.ui.dashboard.makeService.MakeServiceViewModel
-import com.inses.utils.DateUtils.getDayAfterTomorrow
+import com.inses.utils.DateUtils.getToday
 import com.inses.utils.DateUtils.getTomorrow
 import com.inses.utils.MakeServiceUiEvent
 import com.inses.utils.RxBus
@@ -56,13 +56,13 @@ class Step3Fragment : BaseFragment<FragmentStep3Binding, Step3ViewModel>() {
             }
         }
         val fdate = mBinding.fDate.findViewById(R.id.date) as TextView
-        fdate.text = getTomorrow()[0]
+        fdate.text = getToday()[0]
         val fday = mBinding.fDate.findViewById(R.id.day) as TextView
-        fday.text = getTomorrow()[1]
+        fday.text = getToday()[1]
         val sdate = mBinding.sDate.findViewById(R.id.date) as TextView
-        sdate.text = getDayAfterTomorrow()[0]
+        sdate.text = getTomorrow()[0]
         val sDay = mBinding.sDate.findViewById(R.id.day) as TextView
-        sDay.text = getDayAfterTomorrow()[1]
+        sDay.text = getTomorrow()[1]
         val pdate = mBinding.pDate.findViewById(R.id.date) as TextView
         pdate.visibility = View.GONE
         val pday = mBinding.pDate.findViewById(R.id.day) as TextView
@@ -85,6 +85,9 @@ class Step3Fragment : BaseFragment<FragmentStep3Binding, Step3ViewModel>() {
                 text("Schedule Your Service")
                 txtSize("medium")
                 txtColor("b")
+                back(View.OnClickListener {
+                    requireActivity().onBackPressed()
+                })
             }
         }
 
@@ -129,10 +132,10 @@ class Step3Fragment : BaseFragment<FragmentStep3Binding, Step3ViewModel>() {
 
         if(i==0){
             fDateL.setBackgroundResource(R.drawable.selected_back)
-            viewModel.serviceDate.set(getTomorrow()[2])
+            viewModel.serviceDate.set(getToday()[2])
         }else if(i==1){
             sDateL.setBackgroundResource(R.drawable.selected_back)
-            viewModel.serviceDate.set(getDayAfterTomorrow()[2])
+            viewModel.serviceDate.set(getTomorrow()[2])
         }else if(i==2){
             pDateL.setBackgroundResource(R.drawable.selected_back)
             datePicker()
@@ -154,7 +157,7 @@ class Step3Fragment : BaseFragment<FragmentStep3Binding, Step3ViewModel>() {
                 val pdate = mBinding.pDate.findViewById(R.id.date) as TextView
                 pdate.visibility = View.VISIBLE
                 pdate.text = dayOfMonth.toString()
-                viewModel.serviceTime.set(dateObject.time.toString())
+                viewModel.serviceDate.set(dateObject.time.toString())
                 val pday = mBinding.pDate.findViewById(R.id.day) as TextView
                 pday.text = day
             }, mYear, mMonth, mDay

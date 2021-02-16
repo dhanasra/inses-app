@@ -2,8 +2,13 @@ package com.inses.dagger.builder
 
 import com.inses.ui.auth.AuthActivity
 import com.inses.ui.auth.AuthFragmentProvider
+import com.inses.ui.bookings.fragments.details.OrderDetailsActivity
+import com.inses.ui.bookings.fragments.history.HistoryDetailsActivity
+import com.inses.ui.bookings.fragments.payment.PaymentSelectActivity
+import com.inses.ui.bookings.fragments.payment.PaymentSuccessActivity
 import com.inses.ui.dashboard.makeService.MakeServiceActivity
 import com.inses.ui.dashboard.makeService.steps.BookingSuccessActivity
+import com.inses.ui.dashboard.search.SearchActivity
 import com.inses.ui.home.HomeActivity
 import com.inses.ui.home.HomeFragmentProvider
 import com.inses.ui.profile.about.AboutUsActivity
@@ -27,11 +32,27 @@ abstract class ActivityBuilder {
     @ContributesAndroidInjector
     abstract fun bindHomeActivity() : HomeActivity
 
+
+    @ContributesAndroidInjector
+    abstract fun bindSearchActivity() : SearchActivity
+
     @ContributesAndroidInjector
     abstract fun bindMakeServiceActivity() : MakeServiceActivity
 
     @ContributesAndroidInjector
     abstract fun bindBookingSuccessActivity() : BookingSuccessActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindOrderDetailsActivity() : OrderDetailsActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindHistoryDetailsActivity() : HistoryDetailsActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindPaymentSelectActivity() : PaymentSelectActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindPaymentSuccessActivity() : PaymentSuccessActivity
 
     @ContributesAndroidInjector
     abstract fun bindCustomerMessageActivity() : CustomerMessageActivity

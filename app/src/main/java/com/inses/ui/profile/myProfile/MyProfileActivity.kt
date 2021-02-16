@@ -22,6 +22,8 @@ class MyProfileActivity : BaseActivity<ActivityMyProfileBinding,MyProfileViewMod
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = viewDataBinding!!
+
+        mBinding.customerId.text = viewModel.id
     }
 
 }

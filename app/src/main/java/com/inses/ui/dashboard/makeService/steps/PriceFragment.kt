@@ -78,6 +78,9 @@ class PriceFragment(ser:Service) : BaseFragment<FragmentPriceBinding,PriceViewMo
                 text("Amount of service")
                 txtSize("medium")
                 txtColor("b")
+                back(View.OnClickListener {
+                    requireActivity().onBackPressed()
+                })
             }
 
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+     </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.dashboard.orders.details.OrderDetailsActivity">
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:paddingBottom="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:id="@+id/detailsRecyclerView"/>
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:id="@+id/bottom"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/rlStatus"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/curve_button_two"
+                    android:layout_height="40dp">
+                    <TextView
+                        android:gravity="center"
+                        android:visibility="visible"
+                        android:fontFamily="@font/linetocircular"
+                        android:layout_height="40dp"
+                        android:layout_width="match_parent"
+                        android:background="@color/transparent"
+                        android:id="@+id/status"
+                        android:textAllCaps="false"
+                        android:text="Confirm Order"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/text_size_h5"
+                        />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</layout>

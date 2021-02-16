@@ -5,6 +5,9 @@
         <variable
             name="booking"
             type="com.inses.data.BookingData" />
+        <variable
+            name="onClick"
+            type="android.view.View.OnClickListener" />
     </data>
     <androidx.cardview.widget.CardView
         app:cardElevation="4dp"
@@ -15,7 +18,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="@drawable/rouded_square_ripple"
             android:padding="15dp"
+            android:onClick="@{onClick}"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -35,6 +42,7 @@
                     android:fontFamily="@font/linetocircular"
                     android:textColor="@color/text_color"/>
                 <LinearLayout
+                    app:setBack="@{booking.status}"
                     android:gravity="center_vertical"
                     android:background="@drawable/curve_button"
                     android:layout_alignParentEnd="true"

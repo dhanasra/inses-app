@@ -27,14 +27,14 @@ class OnGoingViewModel @Inject constructor(context:Context):BaseViewModel<MyBook
 
     private val pref: SharedPreferences = context.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
 
-    var phone = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"8056384773")
+    var phone = pref.getString(AppPreferenceHelper.PREF_KEY_PHONE_NUMBER,"")
 
     var bookingList = listOf<BookingData>()
 
     fun makeService(){
         viewModelScope.launch {
             val jsonBody= JSONObject()
-            jsonBody.put("id","8056384773")
+            jsonBody.put("id",phone)
             val requestBody= RequestBody.create(MediaType.parse("application/json"),jsonBody.toString())
             Log.d("details", DateUtils.getTimeInMillis())
             val getDeferredUserDetails = ApiService.AppApi.retrofitService.getBooking(requestBody)

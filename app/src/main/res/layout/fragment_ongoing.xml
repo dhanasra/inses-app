@@ -8,6 +8,7 @@
             type="com.inses.ui.bookings.fragments.OnGoingViewModel" />
     </data>
     <RelativeLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.bookings.fragments.OngoingFragment">

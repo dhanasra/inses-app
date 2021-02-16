@@ -1,7 +1,16 @@
 package com.inses.data
 
+import java.io.Serializable
+
 data class BookingData (
         var id:String,
+        var profilePic:String,
+        var customerId:String,
+        var name:String,
+        var area:String,
+        var transactionData:String,
+        var nearBy:String,
+        var email:String,
         var serviceName:String,
         var serviceType:String,
         var image:String,
@@ -19,5 +28,12 @@ data class BookingData (
         var orderDate:String,
         var orderTime:String,
         var status:String,
-        var completed:Boolean
-)
+        var completed:Boolean,
+        var completedDate:String,
+        var completedTime:String,
+        var completedBy:String,
+        var stars:String,
+        var review:String,
+        var paymentReceived:Boolean
+
+): Serializable
